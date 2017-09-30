@@ -7,7 +7,7 @@ import android.view.View;
 import android.widget.EditText;
 
 public class BuildAccount extends AppCompatActivity {
-    public static final String BUILD_MESSAGE = "com.example.myfirstapp.MESSAGE";
+    public static final String BUILD_MESSAGE = "com.example.myfirstapp.BUILDMESSAGE";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,9 +25,9 @@ public class BuildAccount extends AppCompatActivity {
     /** Called when the user taps the Send button */
     public void sendMessage(View view) {
         Intent intent = new Intent(this, KitDisplay.class);
-        EditText editText = (EditText) findViewById(R.id.editText);
-        String message = editText.getText().toString();
-        intent.putExtra(BUILD_MESSAGE, message);
+        //EditText editText = (EditText) findViewById(R.id.editText);
+        //String message = editText.getText().toString();
+        //intent.putExtra(BUILD_MESSAGE, message);
         startActivity(intent);
     }
 }

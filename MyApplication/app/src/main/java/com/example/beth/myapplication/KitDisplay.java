@@ -12,6 +12,6 @@ public class KitDisplay extends AppCompatActivity {
         setContentView(R.layout.activity_kit_display);
 
         Intent intent = getIntent();
-        String message = intent.getStringExtra(BuildAccount.BUILD_MESSAGE);
+        //String message = intent.getStringExtra(BuildAccount.BUILD_MESSAGE);
     }
 }

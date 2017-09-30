@@ -25,7 +25,14 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
         </activity>
-        <activity android:name=".KitDisplay"></activity>
+        <activity
+            android:name=".KitDisplay"
+            android:parentActivityName=".BuildAccount">
+
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".BuildAccount" />
+        </activity>
     </application>
 
 </manifest>
