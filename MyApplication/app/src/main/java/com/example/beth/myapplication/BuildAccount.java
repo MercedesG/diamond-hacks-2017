@@ -6,13 +6,20 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 
-public class MainActivity extends AppCompatActivity {
-
-    public static final String MAIN_MESSAGE = "com.example.myfirstapp.MESSAGE";
+public class BuildAccount extends AppCompatActivity {
+    public static final String BUILD_MESSAGE = "com.example.myfirstapp.MESSAGE";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_display_message);
+
+        // Get the Intent that started this activity and extract the string
+        Intent intent = getIntent();
+        String message = intent.getStringExtra(MainActivity.MAIN_MESSAGE);
+
+        // Capture the layout's TextView and set the string as its text
+        //TextView textView = (TextView) findViewById(R.id.textView5);
+        //textView.setText(message);
     }
 
     /** Called when the user taps the Send button */
@@ -20,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, BuildAccount.class);
         EditText editText = (EditText) findViewById(R.id.editText);
         String message = editText.getText().toString();
-        intent.putExtra(MAIN_MESSAGE, message);
+        intent.putExtra(BUILD_MESSAGE, message);
         startActivity(intent);
     }
 }
