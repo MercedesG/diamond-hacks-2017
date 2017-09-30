@@ -24,7 +24,7 @@ public class BuildAccount extends AppCompatActivity {
 
     /** Called when the user taps the Send button */
     public void sendMessage(View view) {
-        Intent intent = new Intent(this, BuildAccount.class);
+        Intent intent = new Intent(this, KitDisplay.class);
         EditText editText = (EditText) findViewById(R.id.editText);
         String message = editText.getText().toString();
         intent.putExtra(BUILD_MESSAGE, message);
