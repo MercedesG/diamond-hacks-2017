@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">My Application</string>
+    <string name="hi_hayley">Hi Hayley!</string>
+    <string name="build_new_account">Build New Account</string>
+    <string name="your_emergency_kit">Your Emergency Kit</string>
+    <string name="submit">Submit</string>
+    <string name="determine_kit_size">Determine Kit Size</string>
+    <string name="number_of_adults">Number of Adults</string>
+    <string name="number_of_kids">Number of Kids</string>
+    <string name="number_of_pets">Number of Pets</string>
+    <string name="textview">TextView</string>
+</resources>
