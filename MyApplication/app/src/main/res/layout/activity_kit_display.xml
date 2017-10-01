@@ -51,13 +51,6 @@
                     android:text="Items in Inventory" />
             </LinearLayout>
 
-            <TextView
-                android:id="@+id/textView2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="TextView" />
-
             <CheckBox
                 android:id="@+id/checkBox1"
                 android:layout_width="match_parent"
@@ -67,6 +60,15 @@
                 android:visibility="gone"
                 tools:layout_editor_absoluteX="8dp"
                 tools:layout_editor_absoluteY="0dp" />
+
+            <EditText
+                android:id="@+id/editText3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:text="Name" />
 
             <CheckBox
                 android:id="@+id/checkBox2"

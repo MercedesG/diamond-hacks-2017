@@ -13,8 +13,8 @@ public class Item {
     private String name;
     private double price;
     private int quantity;
-    private boolean expire;
-    private Date expiration;
+    private int expire;
+    private String expiration;
 
     public Item(String name) {
         this.name = name;
@@ -23,31 +23,40 @@ public class Item {
     public String getName() {
         return name;
     }
+
     public void setName(String name) {
         this.name = name;
     }
+
     public double getPrice() {
         return this.price;
     }
+
     public void setPrice(double price) {
         this.price = price;
     }
+
     public int getQuantity() {
         return quantity;
     }
+
     public void setQuantity(int quantity) {
         this.quantity = quantity;
     }
-    public boolean canExpire() {
+
+    public int getExpire() {
         return expire;
     }
-    public void setExpire(boolean expire) {
+
+    public void setExpire(int expire) {
         this.expire = expire;
     }
-    public Date getExpiration() {
+
+    public String getExpiration() {
         return this.expiration;
     }
-    public void setExpiration(Date expiration) {
+
+    public void setExpiration(String expiration) {
         this.expiration = expiration;
     }
 }

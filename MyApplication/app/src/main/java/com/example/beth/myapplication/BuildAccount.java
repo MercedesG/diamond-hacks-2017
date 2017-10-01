@@ -13,6 +13,7 @@ public class BuildAccount extends AppCompatActivity {
     public static final String ADULT_NUM = "com.example.myfirstapp.ADULT_NUM";
     public static final String KID_NUM = "com.example.myfirstapp.KID_NUM";
     public static final String PET_NUM = "com.example.myfirstapp.KID_NUM";
+    private String listName;
     // Write a message to the database
     private FirebaseDatabase database = FirebaseDatabase.getInstance();
     private DatabaseReference listRef = database.getReference("account");
@@ -24,7 +25,7 @@ public class BuildAccount extends AppCompatActivity {
 
         // Get the Intent that started this activity and extract the string
         Intent intent = getIntent();
-        String message = intent.getStringExtra(MainActivity.MAIN_MESSAGE);
+        this.listName = intent.getStringExtra(MainActivity.MAIN_MESSAGE);
     }
 
     /** Called when the user taps the Send button */
@@ -39,9 +40,8 @@ public class BuildAccount extends AppCompatActivity {
         //Save number of pets
         EditText editText3 = (EditText) findViewById(R.id.numPets);
         int numberOfPets = Integer.parseInt(editText3.getText().toString());
-        Account a = new Account(numberOfAdults,numberOfKids,numberOfPets);
+        Account a = new Account(listName,numberOfAdults,numberOfKids,numberOfPets);
         listRef.push().setValue(a);
-        //TODO save to database
         startActivity(intent);
     }
 }

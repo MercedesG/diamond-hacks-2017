@@ -9,14 +9,24 @@ import android.os.Parcelable;
 
 public class Account {
 
+    private String listName;
     private int numAdults;
     private int numKids;
     private int numPets;
 
-    public Account(int numAdults, int numKids, int numPets) {
+    public Account(String listName, int numAdults, int numKids, int numPets) {
+        this.listName = listName;
         this.numAdults = numAdults;
         this.numKids = numKids;
         this.numPets = numPets;
+    }
+
+    public String getListName() {
+        return listName;
+    }
+
+    public void setListName(String listName) {
+        this.listName = listName;
     }
 
     public int getNumAdult() {

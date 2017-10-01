@@ -4,13 +4,17 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.EditText;
 import android.widget.TextView;
 
+import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+
+import java.util.Date;
 
 public class KitDisplay extends AppCompatActivity {
 
@@ -25,35 +29,44 @@ public class KitDisplay extends AppCompatActivity {
         setContentView(R.layout.activity_kit_display);
 
         Intent intent = getIntent();
-
+        Item val = new Item("water bottles");
+        val.setExpiration("Monday");
+        val.setExpire(0);
+        val.setPrice(1.0);
+        val.setQuantity(50);
         // Read from the database
-        listRef.addValueEventListener(new ValueEventListener() {
+        listRef.addChildEventListener(new ChildEventListener() {
             @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                // This method is called once with the initial value and again
-                // whenever data at this location is updated.
-                String value = dataSnapshot.getValue(String.class);
-                Log.d(TAG, "Value is: " + value);
+            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+                //Item value = dataSnapshot.getValue(Item.class);
+                //TextView box = (TextView) findViewById(R.id.textView2);
+                //box.setText(value.getName());
             }
 
             @Override
-            public void onCancelled(DatabaseError error) {
-                // Failed to read value
-                Log.w(TAG, "Failed to read value.", error.toException());
+            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+
+            }
+
+            @Override
+            public void onChildRemoved(DataSnapshot dataSnapshot) {
+
+            }
+
+            @Override
+            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
             }
         });
         String s = listRef.getKey();
-        TextView box = (TextView) findViewById(R.id.checkBox1);
-        box.setText(s);
-        //import information from database
-        //TODO
-        // Capture the layout's TextView and set the string as its text
+        //EditText box = (EditText) findViewById(R.id.editText3);
+        //box.setText(s);
+        listRef.push().setValue(val);
 
-        TextView textView;
-       // for (int i = 0; i < text.length; i++) {
-         //   textView = (TextView) findViewById(text[i]);
-            //fix to reflect actual price and suggested amount
-           // textView.setText(numAdults+numKids+numPets);
-        //}
     }
 }
