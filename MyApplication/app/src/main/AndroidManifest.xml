@@ -28,11 +28,11 @@
         <activity
             android:name=".KitDisplay"
             android:parentActivityName=".BuildAccount">
-
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".BuildAccount" />
         </activity>
+        <activity android:name=".KitDisplayPack"></activity>
     </application>
 
 </manifest>
