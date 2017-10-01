@@ -7,7 +7,7 @@ import android.os.Parcelable;
  * Created by hayley on 9/30/17.
  */
 
-public class Account implements Parcelable {
+public class Account {
 
     private int numAdults;
     private int numKids;
@@ -18,24 +18,6 @@ public class Account implements Parcelable {
         this.numKids = numKids;
         this.numPets = numPets;
     }
-
-    protected Account(Parcel in) {
-        numAdults = in.readInt();
-        numKids = in.readInt();
-        numPets = in.readInt();
-    }
-
-    public static final Creator<Account> CREATOR = new Creator<Account>() {
-        @Override
-        public Account createFromParcel(Parcel in) {
-            return new Account(in);
-        }
-
-        @Override
-        public Account[] newArray(int size) {
-            return new Account[size];
-        }
-    };
 
     public int getNumAdult() {
         return numAdults;
@@ -59,18 +41,6 @@ public class Account implements Parcelable {
 
     public void setNumPets(int numPets) {
         this.numPets = numPets;
-    }
-
-    @Override
-    public int describeContents() {
-        return 0;
-    }
-
-    @Override
-    public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeInt(numAdults);
-        parcel.writeInt(numKids);
-        parcel.writeInt(numPets);
     }
 }
 

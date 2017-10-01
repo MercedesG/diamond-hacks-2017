@@ -15,6 +15,9 @@ import com.google.firebase.database.ValueEventListener;
 public class KitDisplay extends AppCompatActivity {
 
     private static final String TAG = "MyActivity";
+    // Write a message to the database
+    private FirebaseDatabase database = FirebaseDatabase.getInstance();
+    private DatabaseReference listRef = database.getReference("list");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,16 +25,9 @@ public class KitDisplay extends AppCompatActivity {
         setContentView(R.layout.activity_kit_display);
 
         Intent intent = getIntent();
-        int numAdults = Integer.parseInt(intent.getStringExtra(BuildAccount.ADULT_NUM));
-        int numKids = Integer.parseInt(intent.getStringExtra(BuildAccount.KID_NUM));
-        int numPets = Integer.parseInt(intent.getStringExtra(BuildAccount.PET_NUM));
-
-        // Write a message to the database
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference myRef = database.getReference("message");
 
         // Read from the database
-        myRef.addValueEventListener(new ValueEventListener() {
+        listRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 // This method is called once with the initial value and again
@@ -46,7 +42,7 @@ public class KitDisplay extends AppCompatActivity {
                 Log.w(TAG, "Failed to read value.", error.toException());
             }
         });
-        String s = myRef.getKey();
+        String s = listRef.getKey();
         TextView box = (TextView) findViewById(R.id.checkBox1);
         box.setText(s);
         //import information from database

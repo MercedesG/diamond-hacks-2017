@@ -1,16 +1,22 @@
 package com.example.beth.myapplication;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 public class BuildAccount extends AppCompatActivity {
     public static final String ADULT_NUM = "com.example.myfirstapp.ADULT_NUM";
     public static final String KID_NUM = "com.example.myfirstapp.KID_NUM";
     public static final String PET_NUM = "com.example.myfirstapp.KID_NUM";
+    // Write a message to the database
+    private FirebaseDatabase database = FirebaseDatabase.getInstance();
+    private DatabaseReference listRef = database.getReference("account");
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,13 +40,8 @@ public class BuildAccount extends AppCompatActivity {
         EditText editText3 = (EditText) findViewById(R.id.numPets);
         int numberOfPets = Integer.parseInt(editText3.getText().toString());
         Account a = new Account(numberOfAdults,numberOfKids,numberOfPets);
-        intent.putExtra("account",a);
-        //a.writeToParcel("android.os.Parcel",0);
-        //SharedPreferences settings = getApplicationContext().getSharedPreferences("List",0);
-        //SharedPreferences.Editor editor = settings.edit();
-        //editor.putInt("Number", 0);
-        //editor.apply();
-        //int homeScore = settings.getInt("Number", 0);
+        listRef.push().setValue(a);
+        //TODO save to database
         startActivity(intent);
     }
 }
