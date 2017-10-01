@@ -75,16 +75,16 @@ public class KitDisplay extends AppCompatActivity {
 
         //Everything after this doesn't matter
 
-        Button buttonTest = (Button) findViewById(R.id.button2);
+        //Button buttonTest = (Button) findViewById(R.id.button2);
         // Send button sends a message and clears the EditText
-        buttonTest.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                // Creates a new FriendlyMessage object
-                Item val = new Item("snacks", 1.0, 50, 0, "Monday");
-                listRef.push().setValue(val);
-            }
-        });
+        //buttonTest.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                 Creates a new FriendlyMessage object
+//                Item val = new Item("snacks", 1.0, 50, 0, "Monday");
+//                listRef.push().setValue(val);
+//            }
+//        });
 
         // Read from the database
         listRef.addChildEventListener(new ChildEventListener() {
@@ -131,7 +131,7 @@ public class KitDisplay extends AppCompatActivity {
     public void sendMessage(View view) {
         Intent intent;
         switch (view.getId()) {
-            case R.id.button2:
+            case R.id.pack:
                 intent = new Intent(this, KitDisplayPack.class);
                 startActivity(intent);
                 break;
