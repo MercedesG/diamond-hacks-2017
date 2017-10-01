@@ -32,7 +32,9 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".BuildAccount" />
         </activity>
-        <activity android:name=".KitDisplayPack"></activity>
+        <activity android:name=".KitDisplayPack" />
+        <activity android:name=".DisplayLists" />
+        <activity android:name=".Inventory"></activity>
     </application>
 
 </manifest>
