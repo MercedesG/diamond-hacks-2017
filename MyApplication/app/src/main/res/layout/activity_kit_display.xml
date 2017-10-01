@@ -57,7 +57,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="CheckBox"
-                android:visibility="visible"
+                android:visibility="gone"
                 tools:layout_editor_absoluteX="8dp"
                 tools:layout_editor_absoluteY="0dp" />
 
@@ -67,7 +67,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="CheckBox"
-                android:visibility="visible"
+                android:visibility="gone"
                 tools:layout_editor_absoluteX="8dp"
                 tools:layout_editor_absoluteY="0dp" />
 
@@ -76,14 +76,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="CheckBox"
-                android:visibility="visible" />
+                android:visibility="gone" />
 
             <CheckBox
                 android:id="@+id/checkBox4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="CheckBox"
-                android:visibility="visible" />
+                android:visibility="gone" />
 
             <CheckBox
                 android:id="@+id/checkBox5"
@@ -91,7 +91,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="CheckBox"
-                android:visibility="visible" />
+                android:visibility="gone" />
 
             <CheckBox
                 android:id="@+id/checkBox6"
@@ -99,7 +99,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="CheckBox"
-                android:visibility="visible" />
+                android:visibility="gone" />
 
             <CheckBox
                 android:id="@+id/checkBox7"
@@ -107,7 +107,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="CheckBox"
-                android:visibility="visible" />
+                android:visibility="gone" />
 
             <CheckBox
                 android:id="@+id/checkBox8"
@@ -115,7 +115,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="CheckBox"
-                android:visibility="visible" />
+                android:visibility="gone" />
 
             <CheckBox
                 android:id="@+id/checkBox9"
@@ -123,7 +123,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="CheckBox"
-                android:visibility="visible" />
+                android:visibility="gone" />
 
             <CheckBox
                 android:id="@+id/checkBox10"
@@ -131,14 +131,15 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="CheckBox"
-                android:visibility="visible" />
+                android:visibility="gone" />
 
             <CheckBox
                 android:id="@+id/checkBox11"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="CheckBox" />
+                android:text="CheckBox"
+                android:visibility="gone" />
 
         </LinearLayout>
     </ScrollView>
