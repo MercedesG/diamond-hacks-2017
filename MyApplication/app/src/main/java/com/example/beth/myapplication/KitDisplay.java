@@ -54,7 +54,7 @@ public class KitDisplay extends AppCompatActivity {
         adultItems[0] = new Item("Battery Radio", 13.89, 1, 0, null);
         adultItems[1] = new Item("First Aid Kit", 7.97, 1, 0, null);
         adultItems[2] = new Item("Flashlight", 4.47, 1*numAdults, 0, null);
-        adultItems[3] = new Item("Nonperishable Meals", 24.75, 9*(numAdults+numKids), 0, null);
+        adultItems[3] = new Item("Nonperishable Meals", 24.75 / 9, 9*(numAdults+numKids), 0, null);
         adultItems[4] = new Item("Water (gallons)", 1, 1*(numAdults+numKids+numPets), 0, null);
         kidItems[0] = new Item("Diapers", 34.94, 1*numKids, 0, null);
         kidItems[1] = new Item("Infant Formula", 19.98, 1*numKids, 0, null);

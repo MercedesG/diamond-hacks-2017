@@ -54,7 +54,7 @@ public class Inventory extends AppCompatActivity {
                 TextView box = (TextView) findViewById(idArray[count]);
                 box.setVisibility(View.VISIBLE);
                 Item temp = purchaseList[i][j];
-                String display = temp.getName();
+                String display = "       " + temp.getName();
                 box.setText(display);
                 count++;
             }
