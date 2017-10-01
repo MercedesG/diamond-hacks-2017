@@ -14,6 +14,7 @@ public class KitDisplayPack extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_kit_display_pack);
+        Intent intent = getIntent();
 
         Item[][] packList = new Item[3][];
         Item[] adultItems = new Item[3];

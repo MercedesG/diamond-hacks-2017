@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.CheckBox;
+import android.widget.TextView;
 
 public class Inventory extends AppCompatActivity {
 
@@ -12,6 +13,7 @@ public class Inventory extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_inventory);
+        Intent intent = getIntent();
 
         Item[][] purchaseList = new Item[3][];
         Item[] adultItems = new Item[8];
@@ -49,7 +51,7 @@ public class Inventory extends AppCompatActivity {
         int count = 0;
         for (int i = 0; i < purchaseList.length; i++) {
             for (int j = 0; j < purchaseList[i].length; j++) {
-                CheckBox box = (CheckBox) findViewById(idArray[count]);
+                TextView box = (TextView) findViewById(idArray[count]);
                 box.setVisibility(View.VISIBLE);
                 Item temp = purchaseList[i][j];
                 String display = temp.getName();
@@ -67,8 +69,8 @@ public class Inventory extends AppCompatActivity {
                 intent = new Intent(this, KitDisplay.class);
                 startActivity(intent);
                 break;
-            case R.id.button3:
-                intent = new Intent(this, Inventory.class);
+            case R.id.button2:
+                intent = new Intent(this, KitDisplayPack.class);
                 startActivity(intent);
                 break;
             default:

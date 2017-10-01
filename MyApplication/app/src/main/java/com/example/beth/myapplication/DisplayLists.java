@@ -13,6 +13,7 @@ public class DisplayLists extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_display_lists);
+        Intent intent = getIntent();
 
         String[] text = {"Emergency Kit List"};
 

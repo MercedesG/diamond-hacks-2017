@@ -35,6 +35,9 @@ public class KitDisplay extends AppCompatActivity {
         setContentView(R.layout.activity_kit_display);
 
         Intent intent = getIntent();
+        int numAdults = intent.getIntExtra(BuildAccount.ADULT_NUM, 0);
+        int numKids = intent.getIntExtra(BuildAccount.KID_NUM, 0);
+        int numPets = intent.getIntExtra(BuildAccount.PET_NUM, 0);
 
         Item[][] purchaseList = new Item[3][];
         Item[] adultItems = new Item[5];
@@ -87,10 +90,11 @@ public class KitDisplay extends AppCompatActivity {
         listRef.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+                //Log.e("onChildAdded",s);
 //                Item value = dataSnapshot.getValue(Item.class);
 //                EditText box = (EditText) findViewById(R.id.editText3);
 //                box.setText(value.getName());
-//
+
 //                String stuff = purchaseRef.child("Basic").child("Battery Radio").getKey();
 //                box.setText(stuff);
             }
@@ -118,7 +122,8 @@ public class KitDisplay extends AppCompatActivity {
 //        String s = listRef.getKey();
         //EditText box = (EditText) findViewById(R.id.editText3);
         //box.setText(s);
-        //listRef.push().setValue(val);
+
+//        listRef.push().setValue(adultItems[0]);
 
     }
 

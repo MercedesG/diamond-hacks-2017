@@ -10,9 +10,9 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class BuildAccount extends AppCompatActivity {
-    public static final String ADULT_NUM = "com.example.myfirstapp.ADULT_NUM";
-    public static final String KID_NUM = "com.example.myfirstapp.KID_NUM";
-    public static final String PET_NUM = "com.example.myfirstapp.KID_NUM";
+    public static final String ADULT_NUM = "com.example.ADULT_NUM";
+    public static final String KID_NUM = "com.example.KID_NUM";
+    public static final String PET_NUM = "com.example.PET_NUM";
     private String listName;
     // Write a message to the database
     private FirebaseDatabase database = FirebaseDatabase.getInstance();
@@ -42,6 +42,9 @@ public class BuildAccount extends AppCompatActivity {
         int numberOfPets = Integer.parseInt(editText3.getText().toString());
         Account a = new Account(listName,numberOfAdults,numberOfKids,numberOfPets);
         listRef.push().setValue(a);
+        intent.putExtra(ADULT_NUM, numberOfAdults);
+        intent.putExtra(KID_NUM, numberOfKids);
+        intent.putExtra(PET_NUM, numberOfPets);
         startActivity(intent);
     }
 }
