@@ -1,0 +1,63 @@
+{
+  "project_info": {
+    "project_number": "804657256701",
+    "firebase_url": "https://emergencykit-a098d.firebaseio.com",
+    "project_id": "emergencykit-a098d",
+    "storage_bucket": "emergencykit-a098d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:804657256701:android:069367861d376c42",
+        "android_client_info": {
+          "package_name": "com.example.beth.myapplication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "804657256701-896dcm9cb2bhr26dtng64v8fk3t54j79.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.beth.myapplication",
+            "certificate_hash": "55bd002c73fec7a62bea19cacda9fb2df882eba5"
+          }
+        },
+        {
+          "client_id": "804657256701-n326k1tbqldhabfj9iv4f5o8sq17483h.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.beth.myapplication",
+            "certificate_hash": "387b2d17b46621a7ca6cbdd5f3b0c347e903db99"
+          }
+        },
+        {
+          "client_id": "804657256701-2mak4dr6vpjjcrsahtvkci33nsf2h15r.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAqmzteULJmTbY4cTDp64EH-O_Zqz381G0"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "804657256701-2mak4dr6vpjjcrsahtvkci33nsf2h15r.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
