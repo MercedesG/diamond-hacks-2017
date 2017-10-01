@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -34,7 +35,42 @@ public class KitDisplay extends AppCompatActivity {
         setContentView(R.layout.activity_kit_display);
 
         Intent intent = getIntent();
-        Item val = new Item("water bottles", 1.0, 50, 0, "Monday");
+
+        Item[][] purchaseList = new Item[3][];
+        Item[] adultItems = new Item[5];
+        Item[] kidItems = new Item[3];
+        Item[] petItems = new Item[3];
+        purchaseList[0] = adultItems;
+        purchaseList[1] = kidItems;
+        purchaseList[2] = petItems;
+        adultItems[0] = new Item("Battery Radio", 13.89, 1, 0, null);
+        adultItems[1] = new Item("First Aid Kit", 7.97, 1, 0, null);
+        adultItems[2] = new Item("Flashlight", 4.47, 1, 0, null);
+        adultItems[3] = new Item("Nonperishable Food", 24.75, 9, 0, null);
+        adultItems[4] = new Item("Water (gallons)", 1, 1, 0, null);
+        kidItems[0] = new Item("Diapers", 34.94, 1, 0, null);
+        kidItems[1] = new Item("Infant Formula", 19.98, 1, 0, null);
+        kidItems[2] = new Item("Rash Cream", 3.47, 1, 0, null);
+        petItems[0] = new Item("Pet Carrier", 24.77, 1, 0, null);
+        petItems[1] = new Item("Pet Food", 9.98, 1, 0, null);
+        petItems[2] = new Item("Waste Bags", 4.87, 1, 0, null);
+
+        int[] idArray = {R.id.checkBox1, R.id.checkBox2, R.id.checkBox3, R.id.checkBox4,
+                        R.id.checkBox5, R.id.checkBox6, R.id.checkBox7, R.id.checkBox8,
+                        R.id.checkBox9, R.id.checkBox10, R.id.checkBox11};
+        int count = 0;
+        for (int i = 0; i < purchaseList.length; i++) {
+            for (int j = 0; j < purchaseList[i].length; j++) {
+                CheckBox box = (CheckBox) findViewById(idArray[count]);
+                box.setVisibility(View.VISIBLE);
+                Item temp = purchaseList[i][j];
+                String display = temp.getName();
+                box.setText(display);
+                count++;
+            }
+        }
+
+        //Everything after this doesn't matter
 
         Button buttonTest = (Button) findViewById(R.id.button2);
         // Send button sends a message and clears the EditText
@@ -51,12 +87,12 @@ public class KitDisplay extends AppCompatActivity {
         listRef.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-                Item value = dataSnapshot.getValue(Item.class);
-                EditText box = (EditText) findViewById(R.id.editText3);
-                box.setText(value.getName());
-
-                String stuff = purchaseRef.child("Basic").child("Battery Radio").getKey();
-                box.setText(stuff);
+//                Item value = dataSnapshot.getValue(Item.class);
+//                EditText box = (EditText) findViewById(R.id.editText3);
+//                box.setText(value.getName());
+//
+//                String stuff = purchaseRef.child("Basic").child("Battery Radio").getKey();
+//                box.setText(stuff);
             }
 
             @Override
@@ -79,10 +115,28 @@ public class KitDisplay extends AppCompatActivity {
 
             }
         });
-        String s = listRef.getKey();
+//        String s = listRef.getKey();
         //EditText box = (EditText) findViewById(R.id.editText3);
         //box.setText(s);
         //listRef.push().setValue(val);
 
     }
+
+    /** Called when the user taps the Send button */
+    public void sendMessage(View view) {
+        Intent intent;
+        switch (view.getId()) {
+            case R.id.button2:
+                intent = new Intent(this, KitDisplayPack.class);
+                startActivity(intent);
+                break;
+            case R.id.button3:
+                intent = new Intent(this, Inventory.class);
+                startActivity(intent);
+                break;
+            default:
+                //fail
+        }
+    }
+
 }
