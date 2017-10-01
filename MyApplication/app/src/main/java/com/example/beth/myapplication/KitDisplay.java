@@ -28,6 +28,9 @@ public class KitDisplay extends AppCompatActivity {
     private DatabaseReference listRef = database.getReference("list");
     private DatabaseReference purchaseRef = database.getReference("Purchase");
     private DatabaseReference packedRef = database.getReference("Packed");
+    private int numAdults = 2;
+    private int numKids = 1;
+    private int numPets = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,9 +38,11 @@ public class KitDisplay extends AppCompatActivity {
         setContentView(R.layout.activity_kit_display);
 
         Intent intent = getIntent();
-        int numAdults = intent.getIntExtra(BuildAccount.ADULT_NUM, 0);
-        int numKids = intent.getIntExtra(BuildAccount.KID_NUM, 0);
-        int numPets = intent.getIntExtra(BuildAccount.PET_NUM, 0);
+//        if (intent != null) {
+//            numAdults = intent.getIntExtra(BuildAccount.ADULT_NUM, 0);
+//            numKids = intent.getIntExtra(BuildAccount.KID_NUM, 0);
+//            numPets = intent.getIntExtra(BuildAccount.PET_NUM, 0);
+//        }
 
         Item[][] purchaseList = new Item[3][];
         Item[] adultItems = new Item[5];
@@ -48,15 +53,15 @@ public class KitDisplay extends AppCompatActivity {
         purchaseList[2] = petItems;
         adultItems[0] = new Item("Battery Radio", 13.89, 1, 0, null);
         adultItems[1] = new Item("First Aid Kit", 7.97, 1, 0, null);
-        adultItems[2] = new Item("Flashlight", 4.47, 1, 0, null);
-        adultItems[3] = new Item("Nonperishable Food", 24.75, 9, 0, null);
-        adultItems[4] = new Item("Water (gallons)", 1, 1, 0, null);
-        kidItems[0] = new Item("Diapers", 34.94, 1, 0, null);
-        kidItems[1] = new Item("Infant Formula", 19.98, 1, 0, null);
-        kidItems[2] = new Item("Rash Cream", 3.47, 1, 0, null);
-        petItems[0] = new Item("Pet Carrier", 24.77, 1, 0, null);
-        petItems[1] = new Item("Pet Food", 9.98, 1, 0, null);
-        petItems[2] = new Item("Waste Bags", 4.87, 1, 0, null);
+        adultItems[2] = new Item("Flashlight", 4.47, 1*numAdults, 0, null);
+        adultItems[3] = new Item("Nonperishable Meals", 24.75, 9*(numAdults+numKids), 0, null);
+        adultItems[4] = new Item("Water (gallons)", 1, 1*(numAdults+numKids+numPets), 0, null);
+        kidItems[0] = new Item("Diapers", 34.94, 1*numKids, 0, null);
+        kidItems[1] = new Item("Infant Formula", 19.98, 1*numKids, 0, null);
+        kidItems[2] = new Item("Rash Cream", 3.47, 1*numKids, 0, null);
+        petItems[0] = new Item("Pet Carrier", 24.77, 1*numPets, 0, null);
+        petItems[1] = new Item("Pet Food", 9.98, 1*numPets, 0, null);
+        petItems[2] = new Item("Waste Bags", 4.87, 1*numPets, 0, null);
 
         int[] idArray = {R.id.checkBox1, R.id.checkBox2, R.id.checkBox3, R.id.checkBox4,
                         R.id.checkBox5, R.id.checkBox6, R.id.checkBox7, R.id.checkBox8,
@@ -64,12 +69,19 @@ public class KitDisplay extends AppCompatActivity {
         int count = 0;
         for (int i = 0; i < purchaseList.length; i++) {
             for (int j = 0; j < purchaseList[i].length; j++) {
-                CheckBox box = (CheckBox) findViewById(idArray[count]);
-                box.setVisibility(View.VISIBLE);
-                Item temp = purchaseList[i][j];
-                String display = temp.getName();
-                box.setText(display);
-                count++;
+                if (purchaseList[i][j].getQuantity() > 0) {
+                    CheckBox box = (CheckBox) findViewById(idArray[count]);
+                    box.setVisibility(View.VISIBLE);
+                    Item temp = purchaseList[i][j];
+                    double p = temp.getPrice();
+                    String display = String.format("$%.2f     %s x %d",
+                            temp.getPrice(), temp.getName(), temp.getQuantity());
+                    if (p < 10) {
+                        display = " " + display;
+                    }
+                    box.setText(display);
+                    count++;
+                }
             }
         }
 
