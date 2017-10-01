@@ -29,16 +29,12 @@ public class KitDisplay extends AppCompatActivity {
         setContentView(R.layout.activity_kit_display);
 
         Intent intent = getIntent();
-        Item val = new Item("water bottles");
-        val.setExpiration("Monday");
-        val.setExpire(0);
-        val.setPrice(1.0);
-        val.setQuantity(50);
+        Item val = new Item("water bottles", 1.0, 50, 0, "Monday");
         // Read from the database
         listRef.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-                //Item value = dataSnapshot.getValue(Item.class);
+                Item value = dataSnapshot.getValue(Item.class);
                 //TextView box = (TextView) findViewById(R.id.textView2);
                 //box.setText(value.getName());
             }

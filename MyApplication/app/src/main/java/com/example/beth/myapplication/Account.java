@@ -9,10 +9,10 @@ import android.os.Parcelable;
 
 public class Account {
 
-    private String listName;
-    private int numAdults;
-    private int numKids;
-    private int numPets;
+    public String listName;
+    public int numAdults;
+    public int numKids;
+    public int numPets;
 
     public Account(String listName, int numAdults, int numKids, int numPets) {
         this.listName = listName;

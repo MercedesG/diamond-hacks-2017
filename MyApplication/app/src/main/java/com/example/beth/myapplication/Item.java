@@ -10,14 +10,18 @@ import java.util.Date;
  */
 
 public class Item {
-    private String name;
-    private double price;
-    private int quantity;
-    private int expire;
-    private String expiration;
+    public String name;
+    public double price;
+    public int quantity;
+    public int expire;
+    public String expiration;
 
-    public Item(String name) {
+    public Item(String name, double price, int quantity, int expire, String expiration) {
         this.name = name;
+        this.price = price;
+        this.quantity = quantity;
+        this.expire = expire;
+        this.expiration = expiration;
     }
 
     public String getName() {
