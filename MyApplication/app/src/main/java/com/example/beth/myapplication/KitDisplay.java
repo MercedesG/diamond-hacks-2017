@@ -26,6 +26,7 @@ public class KitDisplay extends AppCompatActivity {
     private FirebaseDatabase database = FirebaseDatabase.getInstance();
     private DatabaseReference listRef = database.getReference("list");
     private DatabaseReference purchaseRef = database.getReference("Purchase");
+    private DatabaseReference packedRef = database.getReference("Packed");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,6 +54,9 @@ public class KitDisplay extends AppCompatActivity {
                 Item value = dataSnapshot.getValue(Item.class);
                 EditText box = (EditText) findViewById(R.id.editText3);
                 box.setText(value.getName());
+
+                String stuff = purchaseRef.child("Basic").child("Battery Radio").getKey();
+                box.setText(stuff);
             }
 
             @Override
