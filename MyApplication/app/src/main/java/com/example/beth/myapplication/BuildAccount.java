@@ -7,7 +7,9 @@ import android.view.View;
 import android.widget.EditText;
 
 public class BuildAccount extends AppCompatActivity {
-    public static final String BUILD_MESSAGE = "com.example.myfirstapp.BUILDMESSAGE";
+    public static final String ADULT_NUM = "com.example.myfirstapp.ADULT_NUM";
+    public static final String KID_NUM = "com.example.myfirstapp.KID_NUM";
+    public static final String PET_NUM = "com.example.myfirstapp.KID_NUM";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -16,18 +18,23 @@ public class BuildAccount extends AppCompatActivity {
         // Get the Intent that started this activity and extract the string
         Intent intent = getIntent();
         String message = intent.getStringExtra(MainActivity.MAIN_MESSAGE);
-
-        // Capture the layout's TextView and set the string as its text
-        //TextView textView = (TextView) findViewById(R.id.textView5);
-        //textView.setText(message);
     }
 
     /** Called when the user taps the Send button */
     public void sendMessage(View view) {
         Intent intent = new Intent(this, KitDisplay.class);
-        //EditText editText = (EditText) findViewById(R.id.editText);
-        //String message = editText.getText().toString();
-        //intent.putExtra(BUILD_MESSAGE, message);
+        //Save number of adults
+        EditText editText1 = (EditText) findViewById(R.id.numAdults);
+        int numberOfAdults = Integer.parseInt(editText1.getText().toString());
+        intent.putExtra(ADULT_NUM, numberOfAdults);
+        //Save number of kids
+        EditText editText2 = (EditText) findViewById(R.id.numKids);
+        int numberOfKids = Integer.parseInt(editText2.getText().toString());
+        intent.putExtra(KID_NUM, numberOfKids);
+        //Save number of pets
+        EditText editText3 = (EditText) findViewById(R.id.numPets);
+        int numberOfPets = Integer.parseInt(editText3.getText().toString());
+        intent.putExtra(PET_NUM, numberOfPets);
         startActivity(intent);
     }
 }
