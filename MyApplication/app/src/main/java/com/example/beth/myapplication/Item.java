@@ -16,6 +16,10 @@ public class Item {
     public int expire;
     public String expiration;
 
+    public Item() {
+
+    }
+
     public Item(String name, double price, int quantity, int expire, String expiration) {
         this.name = name;
         this.price = price;

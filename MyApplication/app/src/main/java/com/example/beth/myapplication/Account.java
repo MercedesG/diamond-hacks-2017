@@ -29,7 +29,7 @@ public class Account {
         this.listName = listName;
     }
 
-    public int getNumAdult() {
+    public int getNumAdults() {
         return numAdults;
     }
 
